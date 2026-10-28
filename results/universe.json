@@ -1,0 +1,22 @@
+{
+  "universe": [
+    "CL=F",
+    "NG=F",
+    "HO=F",
+    "GC=F",
+    "SI=F",
+    "HG=F",
+    "ZC=F",
+    "ZW=F",
+    "ZS=F",
+    "KC=F",
+    "SB=F",
+    "CT=F",
+    "LE=F"
+  ],
+  "excluded": {
+    "PL=F": "gap 53d > 20d"
+  },
+  "n_candidates": 14,
+  "snapshot_end": "2026-09-07"
+}

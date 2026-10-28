@@ -1,0 +1,32 @@
+[project]
+name = "commodity-tsmom"
+version = "0.1.0"
+description = "Systematic time-series momentum strategy on liquid commodity futures"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "yfinance>=0.2.40",
+    "pyyaml>=6.0",
+    "matplotlib>=3.9",
+    "pyarrow>=17.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.6",
+    "jupyter>=1.1",
+    "nbconvert>=7.16",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+filterwarnings = ["error::DeprecationWarning:src"]
+
+[tool.uv]
+package = false

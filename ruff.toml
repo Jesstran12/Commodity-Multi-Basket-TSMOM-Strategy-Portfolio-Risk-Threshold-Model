@@ -1,0 +1,13 @@
+target-version = "py312"
+line-length = 100
+extend-exclude = ["notebooks", ".venv"]
+
+[lint]
+select = ["E", "F", "I", "W", "B", "UP", "N", "ANN"]
+ignore = ["ANN401"]
+
+[lint.per-file-ignores]
+"tests/*" = ["ANN"]
+
+[format]
+quote-style = "double"

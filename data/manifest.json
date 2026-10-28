@@ -1,0 +1,135 @@
+{
+  "pulled_at": "2026-09-08T15:07:58Z",
+  "yfinance_version": "1.7.0",
+  "price_field": "Adj Close",
+  "tickers": {
+    "CL=F": {
+      "path": "data/raw/CL=F.csv",
+      "rows": 6538,
+      "first": "2000-08-23",
+      "last": "2026-09-07",
+      "sha256": "7d34f2040cdcc3defb7b7cd0bd70b128612728a73847c4a0728d961d1a135fb3"
+    },
+    "NG=F": {
+      "path": "data/raw/NG=F.csv",
+      "rows": 6535,
+      "first": "2000-08-30",
+      "last": "2026-09-07",
+      "sha256": "70aa50a264703238df695d6c8937dc449bf0174fb346033091554ae3da7cb159"
+    },
+    "HO=F": {
+      "path": "data/raw/HO=F.csv",
+      "rows": 6532,
+      "first": "2000-09-01",
+      "last": "2026-09-07",
+      "sha256": "dba8c2679986dc52693f69328314aa9b8ecbb493af605ab453c61da5c35d67ee"
+    },
+    "GC=F": {
+      "path": "data/raw/GC=F.csv",
+      "rows": 6529,
+      "first": "2000-08-30",
+      "last": "2026-09-07",
+      "sha256": "2df29ebc97d85dcaef11c6463b351b344070e261fe5b7d4cd5605b5ef573eba8"
+    },
+    "SI=F": {
+      "path": "data/raw/SI=F.csv",
+      "rows": 6531,
+      "first": "2000-08-30",
+      "last": "2026-09-07",
+      "sha256": "578ed2dc9292de0ec5e58d5cc2d12e04616a0ff8f6680845ea397a63960f0dc1"
+    },
+    "HG=F": {
+      "path": "data/raw/HG=F.csv",
+      "rows": 6534,
+      "first": "2000-08-30",
+      "last": "2026-09-07",
+      "sha256": "7eb86b4c304443929b041e975163a5e8d68dd22574f5d8abc413e8adf6a33630"
+    },
+    "PL=F": {
+      "path": "data/raw/PL=F.csv",
+      "rows": 6556,
+      "first": "1997-10-29",
+      "last": "2026-09-04",
+      "sha256": "b724fc4db87c750efebe16f5d92aa8ba375ec9d516542379922963a132b256b1"
+    },
+    "ZC=F": {
+      "path": "data/raw/ZC=F.csv",
+      "rows": 6540,
+      "first": "2000-07-17",
+      "last": "2026-09-04",
+      "sha256": "41ecebc3df632a5cf51d1d9bc2b91a7353609d1cd7b20ac9f3a0765362a7d254"
+    },
+    "ZW=F": {
+      "path": "data/raw/ZW=F.csv",
+      "rows": 6552,
+      "first": "2000-07-17",
+      "last": "2026-09-04",
+      "sha256": "1990e7874879c9f1bc7b35d2374f32fcc2e818132abe961d84dc90d5efb34d3b"
+    },
+    "ZS=F": {
+      "path": "data/raw/ZS=F.csv",
+      "rows": 6532,
+      "first": "2000-09-15",
+      "last": "2026-09-04",
+      "sha256": "430ecc795f25f6145bea9db1b4df12172e232c6ca82215c9f52f1f5466b3364c"
+    },
+    "KC=F": {
+      "path": "data/raw/KC=F.csv",
+      "rows": 6688,
+      "first": "2000-01-03",
+      "last": "2026-09-04",
+      "sha256": "17be195c29732f55dde900e471116b473c0a43733a51a925289a9482bf47a0fb"
+    },
+    "SB=F": {
+      "path": "data/raw/SB=F.csv",
+      "rows": 6651,
+      "first": "2000-03-01",
+      "last": "2026-09-04",
+      "sha256": "883a66ff3d6b28768e977679f8b17cd0209ee65524ff15753674b6a504a54a97"
+    },
+    "CT=F": {
+      "path": "data/raw/CT=F.csv",
+      "rows": 6690,
+      "first": "2000-01-03",
+      "last": "2026-09-04",
+      "sha256": "10fbc5e156bc63295445195a042246abd0bb6cf96e282f1edd42cb2a3deb7b58"
+    },
+    "LE=F": {
+      "path": "data/raw/LE=F.csv",
+      "rows": 6395,
+      "first": "2001-03-01",
+      "last": "2026-09-04",
+      "sha256": "64098646f37071a65c9337dee0df59145acda8ef8c2cd4117e31c3209511426a"
+    }
+  },
+  "panel": {
+    "path": "data/futures_panel.csv",
+    "rows": 6724,
+    "columns": [
+      "CL=F",
+      "NG=F",
+      "HO=F",
+      "GC=F",
+      "SI=F",
+      "HG=F",
+      "ZC=F",
+      "ZW=F",
+      "ZS=F",
+      "KC=F",
+      "SB=F",
+      "CT=F",
+      "LE=F"
+    ],
+    "first": "2000-01-03",
+    "last": "2026-09-07",
+    "sha256": "552018e389e5027d637785ceab118a0be597cc2645a0c7e467a5ee8ae6b33ff1"
+  },
+  "benchmark": {
+    "ticker": "^BCOM",
+    "path": "data/benchmark.csv",
+    "rows": 8923,
+    "first": "1991-01-02",
+    "last": "2026-07-17",
+    "sha256": "90bb49e74fceb936691b9543a91370c099018f84b75db582e9a4a6a265be25ac"
+  }
+}

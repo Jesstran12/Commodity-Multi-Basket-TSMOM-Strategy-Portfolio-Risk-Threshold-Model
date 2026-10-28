@@ -1,0 +1,28 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# OS noise
+.DS_Store
+
+# Local reference solutions — never committed
+ANSWER_KEY_*
+
+# Local working notes — never committed
+LEARNING_LOG.md
+PHASE_HANDOFF_PLAYBOOK.md
+
+# NOTE: data/, results/, figures/ are committed on purpose (see PROJECT_LOG.md §13).
+

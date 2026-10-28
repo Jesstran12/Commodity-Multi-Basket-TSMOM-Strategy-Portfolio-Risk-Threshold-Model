@@ -1,0 +1,88 @@
+# Default configuration. Every parameter of the strategy lives here (PROJECT_LOG.md §2-§5).
+# The headline result uses these a-priori values unchanged. Do not tune them.
+# Each run writes the resolved config it used to results/<run>/resolved_config.yaml.
+
+signal:
+  lookback: 252          # trading days in the trailing-return window (~12 months)
+  skip: 0                # most recent days excluded from the window; 21 is the skip-month variant
+
+sizing:
+  sigma_target_asset: 0.10       # annualised vol each instrument is scaled to (step 1)
+  sigma_target_portfolio: 0.10   # annualised vol the whole portfolio is scaled to (step 2)
+  leverage_cap: 3.0              # max sum of |weights| (gross); fraction of days it binds is reported
+  vol_window: 60                 # days for realised vol; also the EWMA span when estimator = ewma
+  vol_estimator: rolling         # rolling | ewma
+
+execution:
+  rebalance: monthly     # monthly (last trading day) | daily
+  lag: 1                 # positions = weights.shift(lag); 2 is the conservative variant
+
+costs:
+  cost_bps: 5            # one-way cost per unit of notional traded, in basis points
+
+data:
+  tickers:               # candidate universe; the quality gate decides who is in
+    - CL=F               # WTI crude
+    - NG=F               # Natural gas
+    - HO=F               # Heating oil
+    - GC=F               # Gold
+    - SI=F               # Silver
+    - HG=F               # Copper
+    - PL=F               # Platinum
+    - ZC=F               # Corn
+    - ZW=F               # Wheat
+    - ZS=F               # Soybeans
+    - KC=F               # Coffee
+    - SB=F               # Sugar #11
+    - CT=F               # Cotton
+    - LE=F               # Live cattle
+  price_field: Adj Close # falls back to Close when absent
+  start: null            # null = maximum available history
+  ffill_limit: 5         # max consecutive days a price gap is forward-filled (zero return)
+  clip: 0.5              # daily returns clipped to [-clip, +clip]; every clip is logged
+  source: yfinance       # yfinance | csv  (PriceSource implementation)
+  csv_path: null         # wide CSV (date, one column per ticker) used when source = csv
+  fetch_retries: 3       # attempts per ticker before a pull is declared failed
+  raw_dir: data/raw
+  panel_path: data/futures_panel.csv
+  benchmark_path: data/benchmark.csv
+  manifest_path: data/manifest.json
+
+quality_gate:
+  min_years: 10          # history required at snapshot date
+  max_fill_fraction: 0.05
+  max_gap_days: 20       # longest single gap allowed after first valid date
+
+benchmarks:
+  external_tickers:      # tried in order; first one that loads is used
+    - ^BCOM
+    - DBC
+
+inference:
+  risk_free_rate: 0.0
+  block_length: 20       # stationary block bootstrap, days
+  n_resamples: 2000
+  seed: 0
+  ci_level: 0.95         # two-sided bootstrap confidence level for the Sharpe ratio
+
+robustness:
+  grid_lookbacks: [63, 126, 189, 252]
+  grid_vol_windows: [20, 60, 120]
+  grid_estimators: [rolling, ewma]
+  grid_rebalances: [monthly, daily]
+  grid_skips: [0, 21]
+  grid_lags: [1, 2]
+  cost_bps_sweep: [0, 5, 10, 20]
+  is_end: "2012-12-31"           # in-sample ends here (inclusive)
+  oos_start: "2013-01-01"        # out-of-sample starts here
+  subperiod_blocks:              # fixed a priori; last block runs to the end of the data
+    - ["2000-01-01", "2007-12-31"]
+    - ["2008-01-01", "2013-12-31"]
+    - ["2014-01-01", "2019-12-31"]
+    - ["2020-01-01", null]
+  rolling_sharpe_years: 3
+  regime_vol_quantile: 0.75      # stress = EW basket's trailing vol above this full-sample quantile (hindsight)
+
+paths:
+  results_dir: results
+  figures_dir: figures
